@@ -1,0 +1,65 @@
+---
+permalink: /
+---
+<!doctype html>
+<html lang="en" style="color-scheme: dark light;">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ΤΙΝΑΦΤΟΡΕ">
+    <title>ΤΙΝΑΦΤΟΡΕ</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤨</text></svg>">
+    <style>
+      * { box-sizing: border-box; }
+      body { display: grid;
+            place-items:  center;
+            height : 500px;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>ΤΙΝΑΦΤΟΡΕ</h1>
+  <random-gif></random-gif>
+  </body>
+  <footer>
+    <p><a href="https://www.11ty.dev/">Using Eleventy {{ eleventy.version }}</a></p>
+  </footer>
+  <script id="dataelement" type="application/json">{{ globaldata | dump(2) | safe }}</script>
+  <script type="module">
+    customElements.define(
+      'random-gif',
+      class extends HTMLElement {
+        constructor() {
+          super();
+
+          this.renderAnotherGif = this.renderAnotherGif.bind(this);
+          this.render = this.render.bind(this);
+
+          const dataEl = document.querySelector('#dataelement');
+          if (dataEl) {
+            const data = JSON.parse(dataEl.innerHTML);
+            this.data = data ?? [];
+          }
+
+          this.current = this.data[0];
+          this.attachShadow({ mode: "open" });
+          this.shadowRoot.innerHTML = `<video src="" autoplay loop><img src="" alt=""></video>`;
+          this.video = this.shadowRoot.querySelector('video');
+          this.img = this.shadowRoot.querySelector('img');
+          this.renderAnotherGif();
+        }
+
+        renderAnotherGif() {
+          setTimeout(this.renderAnotherGif, 3500)
+          this.current = this.data[Math.floor(Math.random() * this.data.length)];
+          this.render()
+        }
+
+        render() {
+          this.img.setAttribute('src', this.current?.images?.preview_gif?.url);
+          this.video.setAttribute('src', this.current?.images?.original_mp4?.mp4);
+        }
+      }
+    );
+  </script>
+</html>

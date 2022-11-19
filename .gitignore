@@ -1,0 +1,10 @@
+node_modules
+_cache
+.env
+live
+.vscode
+.DS_Store
+.env
+
+# Local Netlify folder
+.netlify
