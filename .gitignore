@@ -5,6 +5,7 @@ live
 .vscode
 .DS_Store
 .env
+_site
 
 # Local Netlify folder
 .netlify

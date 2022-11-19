@@ -44,7 +44,7 @@ permalink: /
 
           this.current = this.data[0];
           this.attachShadow({ mode: "open" });
-          this.shadowRoot.innerHTML = `<video src="" autoplay loop playsinline mute><img src="" alt=""></video>`;
+          this.shadowRoot.innerHTML = `<video src="" style="width: 100%" autoplay loop muted playsinline><img src="" alt=""></video>`;
           this.video = this.shadowRoot.querySelector('video');
           this.img = this.shadowRoot.querySelector('img');
           this.renderAnotherGif();
