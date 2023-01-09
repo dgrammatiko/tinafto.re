@@ -11,7 +11,7 @@
   "author": "Dimitris Grammatikogiannis",
   "license": "MIT",
   "dependencies": {
-    "@11ty/eleventy": "2.0.0-canary.25",
+    "@11ty/eleventy": "2.0.0-canary.26",
     "@netlify/functions": "1.4.0"
   },
   "devDependencies": {
