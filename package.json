@@ -12,7 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "@11ty/eleventy": "3.0.0",
-    "@netlify/functions": "2.8.2"
+    "@netlify/functions": "3.0.0"
   },
   "devDependencies": {
     "axios": "^1.1.3",
