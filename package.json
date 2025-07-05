@@ -6,7 +6,8 @@
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
-    "build-production": "npm run build"
+    "build-production": "npm run build",
+    "test": "eleventy"
   },
   "author": "Dimitris Grammatikogiannis",
   "license": "MIT",
